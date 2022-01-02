@@ -1,4 +1,5 @@
 import './css/styles.css';
+import API from './fetchCountries';
 
 const debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
@@ -10,20 +11,5 @@ refs.input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 function onInput(event) {
   const name = event.target.value;
   console.log(name);
-  fetchCountries(name);
-}
-function fetchCountries(name) {
-  return fetch(`https://restcountries.com/v3.1/name/${name}`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(response.status);
-      }
-      return response.json();
-    })
-    .then(data => {
-      // Data handling
-    })
-    .catch(error => {
-      // Error handling
-    });
+  API.fetchCountries(name);
 }
