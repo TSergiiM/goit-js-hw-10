@@ -13,17 +13,17 @@ const refs = {
 refs.input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 
 function onInput(event) {
-  const contryName = event.target.value;
+  const contryName = event.target.value.trim();
   // console.log(contryName);
   if (contryName === '') {
     return;
   }
-  fetchCountries(contryName.trim()).then(renderCountryCard).catch(nonExistentCountry);
+  fetchCountries(contryName).then(renderCountryCard).catch(nonExistentCountry);
 }
 
 //------------розмітка карточки країни
 function renderCountryCard(response) {
-  console.log(response);
+  // console.log(response);
   // console.log(response.length);
   //------------якщо знайдено >10 то повідомлення
   if (response.length > 10) {
