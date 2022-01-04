@@ -29,7 +29,7 @@ function renderCountryCard(response) {
   if (response.length > 10) {
     refs.countryList.innerHTML = '';
     Notify.info('Too many matches found. Please enter a more specific name.');
-    // ------------якщо знайдено >2 то рендеримо список буде прапор-країна
+    // ------------якщо знайдено від 2 і більше то рендеримо список буде прапор-країна
   } else if (response.length >= 2) {
     const markup = response
       .map(({ flags, name }) => {
