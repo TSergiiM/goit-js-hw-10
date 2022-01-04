@@ -14,6 +14,9 @@ function onInput(event) {
   const contryName = event.target.value;
   // console.log(contryName);
   fetchCountries(contryName.trim()).then(renderCountryCard);
+  if (contryName === '') {
+    return;
+  }
 }
 
 //розмітка карточки країни
