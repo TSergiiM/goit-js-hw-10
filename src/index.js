@@ -16,6 +16,8 @@ function onInput(event) {
   const contryName = event.target.value.trim();
   // console.log(contryName);
   if (contryName === '') {
+    refs.countryList.innerHTML = '';
+    refs.countryCard.innerHTML = '';
     return;
   }
   fetchCountries(contryName).then(renderCountryCard).catch(nonExistentCountry);
