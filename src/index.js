@@ -1,5 +1,5 @@
 import './css/styles.css';
-import API from './fetchCountries';
+import { fetchCountries } from './fetchCountries';
 
 const debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
@@ -13,12 +13,12 @@ refs.input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 function onInput(event) {
   const contryName = event.target.value;
   // console.log(contryName);
-  API.fetchCountries(contryName.trim()).then(renderCountryCard);
+  fetchCountries(contryName.trim()).then(renderCountryCard);
 }
 
 //розмітка карточки країни
 function renderCountryCard(response) {
-  console.log(response);
+  // console.log(response);
   const markup = response
     .map(({ flags, name, population, capital, languages }) => {
       return `

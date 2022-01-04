@@ -23,4 +23,4 @@ function fetchCountries(contryName) {
     });
 }
 
-export default { fetchCountries };
+export { fetchCountries };
