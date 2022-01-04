@@ -7,7 +7,7 @@ const DEBOUNCE_DELAY = 300;
 
 const refs = {
   input: document.querySelector('#search-box'),
-  cardConteiner: document.querySelector('.country-info'),
+  countryCard: document.querySelector('.country-info'),
   countryList: document.querySelector('.country-list'),
 };
 refs.input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
@@ -40,7 +40,7 @@ function renderCountryCard(response) {
       })
       .join('');
     // console.log(markup);
-    refs.cardConteiner.innerHTML = '';
+    refs.countryCard.innerHTML = '';
     refs.countryList.innerHTML = markup;
     //------------якщо знайдено 1 то редеримо карточку країни
   } else {
@@ -59,12 +59,12 @@ function renderCountryCard(response) {
       .join('');
     // console.log(markup);
     refs.countryList.innerHTML = '';
-    refs.cardConteiner.innerHTML = markup;
+    refs.countryCard.innerHTML = markup;
   }
 }
-//------------опрацьовуємо неіснуючу країну
+//------------опрацьовуємо неіснуючу назву країни
 function nonExistentCountry() {
   Notify.failure('Oops, there is no country with that name');
   refs.countryList.innerHTML = '';
-  refs.cardConteiner.innerHTML = '';
+  refs.countryCard.innerHTML = '';
 }
