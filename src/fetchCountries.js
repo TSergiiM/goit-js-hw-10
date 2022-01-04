@@ -7,10 +7,12 @@ function fetchCountries(name) {
 
       return response.json();
     })
-    .then(data => {
+    .then(response => {
       // Data handling
+      return response;
     })
     .catch(error => {
+      console.log(error);
       // Error handling
     });
 }
