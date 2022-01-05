@@ -1,6 +1,6 @@
 import './css/styles.css';
 import { Notify } from 'notiflix';
-import { fetchCountries } from './fetchCountries';
+import { fetchCountries } from './js/fetchCountries';
 
 const debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
@@ -15,7 +15,7 @@ refs.input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 function onInput(event) {
   const contryName = event.target.value.trim();
   // console.log(contryName);
-  if (contryName === '') {
+  if (!contryName) {
     refs.countryList.innerHTML = '';
     refs.countryCard.innerHTML = '';
     return;
